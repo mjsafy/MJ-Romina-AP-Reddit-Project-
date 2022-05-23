@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 
+import 'Login.dart';
 import 'SignUp.dart';
 
 class Reddit extends StatelessWidget {
@@ -23,11 +24,11 @@ class Reddit extends StatelessWidget {
                 begin: Alignment.topLeft,
                 end: Alignment.bottomRight,
                 colors: [
-                  Colors.purple,
-                  Colors.black,
-                  Colors.black,
-                  Colors.purple,
-                ])),
+              Colors.purple,
+              Colors.black,
+              Colors.black,
+              Colors.purple,
+            ])),
         child: Container(
           alignment: Alignment.center,
           child: Column(
@@ -48,18 +49,18 @@ class Reddit extends StatelessWidget {
                             Colors.deepOrange,
                           ])),
                   child: TextButton(
-                      autofocus: true,
-                      child: const Text(
-                        "Sign Up",
-                        style: TextStyle(fontSize: 25, color: Colors.white),
-                      ),onPressed:() {
-                    Navigator.push(context, MaterialPageRoute(builder: (_) {
-                      return SignUp();
-                    }));
-                  },
-                    )),
+                    autofocus: true,
+                    child: const Text(
+                      "Sign Up",
+                      style: TextStyle(fontSize: 25, color: Colors.white),
+                    ),
+                    onPressed: () {
+                      Navigator.push(context, MaterialPageRoute(builder: (_) {
+                        return SignUp();
+                      }));
+                    },
+                  )),
               Container(
-
                   width: w / 2,
                   height: h / 10,
                   decoration: const BoxDecoration(
@@ -72,6 +73,11 @@ class Reddit extends StatelessWidget {
                             Colors.deepPurple,
                           ])),
                   child: TextButton(
+                      onPressed: () {
+                        Navigator.push(context, MaterialPageRoute(builder: (_) {
+                          return Login();
+                        }));
+                      },
                       autofocus: true,
                       child: Text(
                         "Login",

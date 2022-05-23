@@ -31,9 +31,22 @@ class _SignUpState extends State<SignUp> {
 
   @override
   Widget build(BuildContext context) {
+    double w = MediaQuery.of(context).size.width;
+    double h = MediaQuery.of(context).size.height;
+
     return Scaffold(
       appBar: AppBar(),
       body: Container(
+        decoration: BoxDecoration(
+            gradient: LinearGradient(
+                begin: Alignment.topLeft,
+                end: Alignment.bottomRight,
+                colors: [
+              Colors.purple,
+              Colors.black,
+              Colors.black,
+              Colors.purple,
+            ])),
         alignment: Alignment.center,
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.center,
@@ -51,7 +64,7 @@ class _SignUpState extends State<SignUp> {
                       enabledBorder: OutlineInputBorder(
                           borderSide: BorderSide(color: Colors.transparent),
                           borderRadius: BorderRadius.all(Radius.circular(40))),
-                      hintText: "userName")),
+                      hintText: "UserName",prefixIcon: Icon(CupertinoIcons.profile_circled))),
             ),
             Container(
               padding: EdgeInsets.symmetric(vertical: 4),
@@ -65,7 +78,8 @@ class _SignUpState extends State<SignUp> {
                       enabledBorder: OutlineInputBorder(
                           borderSide: BorderSide(color: Colors.transparent),
                           borderRadius: BorderRadius.all(Radius.circular(40))),
-                      hintText: "Password")),
+                      hintText: "Password",
+                      prefixIcon: Icon(Icons.key))),
             ),
             Container(
               padding: EdgeInsets.symmetric(vertical: 4),
@@ -83,6 +97,24 @@ class _SignUpState extends State<SignUp> {
                     prefixIcon: Icon(Icons.email)),
               ),
             ),
+            Container(
+                margin: EdgeInsets.symmetric(vertical: 4),
+                width: w / 2.5,
+                height: h / 12.5,
+                decoration: const BoxDecoration(
+                    borderRadius: BorderRadius.all(Radius.circular(50)),
+                    gradient: LinearGradient(
+                        begin: Alignment.topRight,
+                        end: Alignment.bottomLeft,
+                        colors: [
+                          Colors.deepOrange,
+                          Colors.deepPurple,
+                        ])),
+                child: TextButton(
+                    child: Text(
+                  "Continue",
+                  style: TextStyle(fontSize: 20, color: Colors.white),
+                )))
           ],
         ),
       ),

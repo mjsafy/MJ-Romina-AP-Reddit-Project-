@@ -59,6 +59,7 @@ class Reddit extends StatelessWidget {
                   },
                     )),
               Container(
+
                   width: w / 2,
                   height: h / 10,
                   decoration: const BoxDecoration(

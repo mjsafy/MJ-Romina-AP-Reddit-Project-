@@ -1,25 +1,20 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
-import 'Login.dart';
-
-class SignUp extends StatefulWidget {
-  const SignUp({Key key}) : super(key: key);
+class Login extends StatefulWidget {
+  const Login({Key key}) : super(key: key);
 
   @override
-  State<SignUp> createState() => _SignUpState();
+  State<Login> createState() => _LoginState();
 }
 
-class _SignUpState extends State<SignUp> {
+class _LoginState extends State<Login> {
   TextEditingController userNameC;
   TextEditingController passwordC;
-  TextEditingController emailC;
-
   @override
   void initState() {
     userNameC = TextEditingController();
     passwordC = TextEditingController();
-    emailC = TextEditingController();
     super.initState();
   }
 
@@ -27,7 +22,6 @@ class _SignUpState extends State<SignUp> {
   void dispose() {
     userNameC.dispose();
     passwordC.dispose();
-    emailC.dispose();
     super.dispose();
   }
 
@@ -35,7 +29,6 @@ class _SignUpState extends State<SignUp> {
   Widget build(BuildContext context) {
     double w = MediaQuery.of(context).size.width;
     double h = MediaQuery.of(context).size.height;
-
     return Scaffold(
       appBar: AppBar(),
       body: Container(
@@ -85,22 +78,6 @@ class _SignUpState extends State<SignUp> {
                       prefixIcon: Icon(Icons.key))),
             ),
             Container(
-              padding: EdgeInsets.symmetric(vertical: 4),
-              child: TextField(
-                controller: emailC,
-                decoration: const InputDecoration(
-                    fillColor: Colors.tealAccent,
-                    filled: true,
-                    contentPadding:
-                        EdgeInsets.symmetric(vertical: 12, horizontal: 8),
-                    enabledBorder: OutlineInputBorder(
-                        borderSide: BorderSide(color: Colors.transparent),
-                        borderRadius: BorderRadius.all(Radius.circular(40))),
-                    hintText: "Email",
-                    prefixIcon: Icon(Icons.email)),
-              ),
-            ),
-            Container(
                 margin: EdgeInsets.symmetric(vertical: 4),
                 width: w / 2.5,
                 height: h / 12.5,
@@ -114,11 +91,7 @@ class _SignUpState extends State<SignUp> {
                           Colors.deepPurple,
                         ])),
                 child: TextButton(
-                    onPressed: () {
-                      Navigator.push(context, MaterialPageRoute(builder: (_) {
-                        return Login();
-                      }));
-                    },
+                    onPressed: () {},
                     child: Text(
                       "Continue",
                       style: TextStyle(fontSize: 20, color: Colors.white),

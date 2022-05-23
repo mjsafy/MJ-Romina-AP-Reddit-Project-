@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 
+import 'SignUp.dart';
+
 class Reddit extends StatelessWidget {
   const Reddit({Key key}) : super(key: key);
 
@@ -50,7 +52,12 @@ class Reddit extends StatelessWidget {
                       child: const Text(
                         "Sign Up",
                         style: TextStyle(fontSize: 25, color: Colors.white),
-                      ))),
+                      ),onPressed:() {
+                    Navigator.push(context, MaterialPageRoute(builder: (_) {
+                      return SignUp();
+                    }));
+                  },
+                    )),
               Container(
                   width: w / 2,
                   height: h / 10,

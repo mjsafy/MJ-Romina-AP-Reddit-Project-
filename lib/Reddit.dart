@@ -1,10 +1,18 @@
 import 'package:flutter/material.dart';
+import 'package:reddit/User.dart';
 
 import 'Login.dart';
 import 'SignUp.dart';
 
 class Reddit extends StatelessWidget {
-  const Reddit({Key key}) : super(key: key);
+  User me;
+
+  Reddit({Key key}) : super(key: key);
+
+  void createUser(User user) {
+    me = user;
+  }
+
 
   @override
   Widget build(BuildContext context) {
@@ -56,7 +64,7 @@ class Reddit extends StatelessWidget {
                     ),
                     onPressed: () {
                       Navigator.push(context, MaterialPageRoute(builder: (_) {
-                        return SignUp();
+                        return SignUp(createUser: createUser,);
                       }));
                     },
                   )),

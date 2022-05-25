@@ -1,8 +1,10 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:reddit/User.dart';
 
 class Login extends StatefulWidget {
-  const Login({Key key}) : super(key: key);
+  User user;
+  Login({Key key , this.user}) : super(key: key);
 
   @override
   State<Login> createState() => _LoginState();
@@ -91,7 +93,14 @@ class _LoginState extends State<Login> {
                           Colors.deepPurple,
                         ])),
                 child: TextButton(
-                    onPressed: () {},
+                    onPressed: () {
+                      String userName = userNameC.text;
+                  String password = passwordC.text;
+                  if(widget.user.username == userName && widget.user.password == password){
+                    userNameC.clear();
+                    passwordC.clear();
+
+                    }},
                     child: Text(
                       "Continue",
                       style: TextStyle(fontSize: 20, color: Colors.white),

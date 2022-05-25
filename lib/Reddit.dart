@@ -83,7 +83,8 @@ class Reddit extends StatelessWidget {
                   child: TextButton(
                       onPressed: () {
                         Navigator.push(context, MaterialPageRoute(builder: (_) {
-                          return Login();
+                          if(user != null)
+                            return Login();
                         }));
                       },
                       autofocus: true,

@@ -1,10 +1,13 @@
 import 'package:flutter/material.dart';
 
 import 'Channel.dart';
+import 'ChannelDetails.dart';
+
 
 class Channels extends StatefulWidget {
-  List<Channel> channelList ;
-  Channels({Key key, this.channelList}) : super(key: key);
+  Channels({
+    Key key,
+  }) : super(key: key);
 
   @override
   State<Channels> createState() => _ChannelsState();
@@ -13,16 +16,22 @@ class Channels extends StatefulWidget {
 class _ChannelsState extends State<Channels> {
   @override
   Widget build(BuildContext context) {
+    List<Channel> channelList = [];
+    channelList.add(Channel(name: "c1"));
+    channelList.add(Channel(name: "c2"));
+    channelList.add(Channel(name: "c3"));
     return Container(
       child: ListView.builder(
-        itemCount: widget.channelList.length,
+        itemCount: channelList.length,
         itemBuilder: (context, index) {
           return ListTile(
+              onTap: () {
+                Navigator.push(context, MaterialPageRoute(builder: (_) {
+                  return ChannelDetails(channel: channelList[index],);
+                }));
+              },
               title: Row(
-                children: [
-
-                  Text(widget.channelList[index].name)
-                ],
+                children: [Text(channelList[index].name)],
               ));
         },
       ),

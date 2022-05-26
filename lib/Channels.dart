@@ -3,8 +3,8 @@ import 'package:flutter/material.dart';
 import 'Channel.dart';
 
 class Channels extends StatefulWidget {
-  List<Channel> channelList;
-  Channels({Key key, this.channelList}) : super(key: key);
+  List<Channel> channelList = new List<Channel>();
+  Channels({Key key, }) : super(key: key);
 
   @override
   State<Channels> createState() => _ChannelsState();

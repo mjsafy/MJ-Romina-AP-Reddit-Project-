@@ -6,7 +6,7 @@ import 'package:reddit/home_page.dart';
 class Login extends StatefulWidget {
   User user;
 
-  Login({Key key , this.user }) : super(key: key);
+  Login({Key key, this.user}) : super(key: key);
 
   @override
   State<Login> createState() => _LoginState();
@@ -97,15 +97,22 @@ class _LoginState extends State<Login> {
                 child: TextButton(
                     onPressed: () {
                       String userName = userNameC.text;
-                  String password = passwordC.text;
-                  if(widget.user.username == userName && widget.user.password == password){
-                    userNameC.clear();
-                    passwordC.clear();
-                    Navigator.push(context, MaterialPageRoute(builder: (_) {
-                      return HomePage();
-                    }));
-
-                    }},
+                      String password = passwordC.text;
+                      if (widget.user.username == userName &&
+                          widget.user.password == password) {
+                        userNameC.clear();
+                        passwordC.clear();
+                        Navigator.push(context, MaterialPageRoute(builder: (_) {
+                          return HomePage();
+                        }));
+                      }
+                      else
+                        ScaffoldMessenger.of(context).showSnackBar(
+                          const SnackBar(
+                            content: Text('Username or Password not Configure'),
+                          ),
+                        );
+                    },
                     child: Text(
                       "Continue",
                       style: TextStyle(fontSize: 20, color: Colors.white),

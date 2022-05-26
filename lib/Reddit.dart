@@ -7,7 +7,7 @@ import 'SignUp.dart';
 class WelcomePage extends StatelessWidget {
   User me;
 
-  WelcomePage({Key key  }) : super(key: key);
+  WelcomePage({Key key}) : super(key: key);
 
   void createUser(User user) {
     me = user;
@@ -63,7 +63,9 @@ class WelcomePage extends StatelessWidget {
                     ),
                     onPressed: () {
                       Navigator.push(context, MaterialPageRoute(builder: (_) {
-                        return SignUp(createUser: createUser,);
+                        return SignUp(
+                          createUser: createUser,
+                        );
                       }));
                     },
                   )),
@@ -81,9 +83,17 @@ class WelcomePage extends StatelessWidget {
                           ])),
                   child: TextButton(
                       onPressed: () {
-                        Navigator.push(context, MaterialPageRoute(builder: (_) {
-                          if (me != null) return Login();
-                        }));
+                        if (me != null)
+                          Navigator.push(context,
+                              MaterialPageRoute(builder: (_) {
+                            return Login();
+                          }));
+                        else
+                          ScaffoldMessenger.of(context).showSnackBar(
+                            const SnackBar(
+                              content: Text('Please SignUp First'),
+                            ),
+                          );
                       },
                       autofocus: true,
                       child: Text(

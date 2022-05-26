@@ -12,7 +12,7 @@ class HomePage extends StatefulWidget {
 }
 
 class _HomePageState extends State<HomePage> {
-  List<Widget> pages = [Feed(), Channels(), MyCustomForm(), Settings()];
+  List<Widget> pages = [Feed(), Channels(), Create(), Settings()];
   int _selectedIndex = 0;
 
   @override
@@ -45,7 +45,7 @@ class _HomePageState extends State<HomePage> {
           ),
         ],
         currentIndex: _selectedIndex,
-        selectedItemColor: Colors.lightGreenAccent,
+        selectedItemColor: Colors.green[700],
         unselectedItemColor: Colors.grey,
         onTap: (index) {
           setState(() {

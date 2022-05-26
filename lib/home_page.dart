@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:reddit/Channel.dart';
+import 'package:reddit/User.dart';
 
 import 'Channels.dart';
 import 'Create.dart';
@@ -7,11 +9,17 @@ import 'Settings.dart';
 
 //stateFull widget by scaffold widget and NavigationBar widget
 class HomePage extends StatefulWidget {
+  static User me;
+
+  HomePage( {Key key}) : super(key: key);
+
   @override
   _HomePageState createState() => _HomePageState();
 }
 
 class _HomePageState extends State<HomePage> {
+
+
   List<Widget> pages = [Feed(), Channels(), Create(), Settings()];
   int _selectedIndex = 0;
 

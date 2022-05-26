@@ -1,5 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:reddit/User.dart';
+
 class Settings extends StatefulWidget {
+
+
   @override
   State<Settings> createState() => _SettingsState();
 }
@@ -7,11 +11,15 @@ class Settings extends StatefulWidget {
 class _SettingsState extends State<Settings> {
   @override
   Widget build(BuildContext context) {
-    return Text (
-      'Settings',
-      style: TextStyle(
-        fontSize: 20.0,
-        fontWeight: FontWeight.bold,
+    return Container(
+      child: Column(
+        children: [
+          Container(
+            child: Row(
+              children: [Text("")],
+            ),
+          )
+        ],
       ),
     );
   }

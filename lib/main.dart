@@ -15,7 +15,13 @@ class MyApp extends StatefulWidget {
 }
 
 class _MyAppState extends State<MyApp> {
-  List<Widget> onTopPage = [WelcomePage(), HomePage()];
+  logined() {
+    setState(() {
+      _currentIndex = 1;
+    });
+  }
+
+  List<Widget> onTopPage = [WelcomePage(logined: logined), HomePage()];
   int _currentIndex = 0;
 
   @override
@@ -23,8 +29,7 @@ class _MyAppState extends State<MyApp> {
     return MaterialApp(
       theme: ThemeData(
           colorSchemeSeed: const Color(0xf0a3b18a), useMaterial3: true),
-
-      home: HomePage(),
+      home: onTopPage[_currentIndex],
       debugShowCheckedModeBanner: false,
     );
   }

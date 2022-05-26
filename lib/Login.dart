@@ -4,7 +4,8 @@ import 'package:reddit/User.dart';
 
 class Login extends StatefulWidget {
   User user;
-  Login({Key key , this.user}) : super(key: key);
+  Function logined;
+  Login({Key key , this.user , this.logined}) : super(key: key);
 
   @override
   State<Login> createState() => _LoginState();
@@ -99,6 +100,7 @@ class _LoginState extends State<Login> {
                   if(widget.user.username == userName && widget.user.password == password){
                     userNameC.clear();
                     passwordC.clear();
+                    widget.logined();
 
                     }},
                     child: Text(

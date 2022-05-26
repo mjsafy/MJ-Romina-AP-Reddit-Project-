@@ -4,15 +4,14 @@ import 'package:reddit/User.dart';
 import 'Login.dart';
 import 'SignUp.dart';
 
-class Reddit extends StatelessWidget {
+class WelcomePage extends StatelessWidget {
   User me;
 
-  Reddit({Key key}) : super(key: key);
+  WelcomePage({Key key}) : super(key: key);
 
   void createUser(User user) {
     me = user;
   }
-
 
   @override
   Widget build(BuildContext context) {
@@ -83,8 +82,7 @@ class Reddit extends StatelessWidget {
                   child: TextButton(
                       onPressed: () {
                         Navigator.push(context, MaterialPageRoute(builder: (_) {
-                          if(user != null)
-                            return Login();
+                          if (me != null) return Login();
                         }));
                       },
                       autofocus: true,

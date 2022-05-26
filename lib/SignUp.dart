@@ -6,8 +6,8 @@ import 'Login.dart';
 
 class SignUp extends StatefulWidget {
   final  Function createUser;
-  Function logined;
-  SignUp({Key key , this.createUser ,this.logined}) : super(key: key);
+
+  SignUp({Key key , this.createUser }) : super(key: key);
 
   @override
   State<SignUp> createState() => _SignUpState();
@@ -127,7 +127,7 @@ class _SignUpState extends State<SignUp> {
                   passwordC.clear();
                   emailC.clear();
                       Navigator.push(context, MaterialPageRoute(builder: (_) {
-                        return Login(user: user,logined: widget.logined,);
+                        return Login(user: user);
                       }));
                     },
                     child: Text(

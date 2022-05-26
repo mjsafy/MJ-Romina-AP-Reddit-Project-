@@ -6,8 +6,8 @@ import 'SignUp.dart';
 
 class WelcomePage extends StatelessWidget {
   User me;
-  Function logined;
-  WelcomePage({Key key ,this.logined }) : super(key: key);
+
+  WelcomePage({Key key  }) : super(key: key);
 
   void createUser(User user) {
     me = user;

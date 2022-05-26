@@ -1,11 +1,12 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:reddit/User.dart';
+import 'package:reddit/home_page.dart';
 
 class Login extends StatefulWidget {
   User user;
-  Function logined;
-  Login({Key key , this.user , this.logined}) : super(key: key);
+
+  Login({Key key , this.user }) : super(key: key);
 
   @override
   State<Login> createState() => _LoginState();
@@ -100,7 +101,9 @@ class _LoginState extends State<Login> {
                   if(widget.user.username == userName && widget.user.password == password){
                     userNameC.clear();
                     passwordC.clear();
-                    widget.logined();
+                    Navigator.push(context, MaterialPageRoute(builder: (_) {
+                      return HomePage();
+                    }));
 
                     }},
                     child: Text(

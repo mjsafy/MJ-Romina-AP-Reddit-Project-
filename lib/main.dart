@@ -15,22 +15,14 @@ class MyApp extends StatefulWidget {
 }
 
 class _MyAppState extends State<MyApp> {
-  logined() {
-    setState(() {
-      _currentIndex = 1;
-    });
-  }
-
-  List<Widget> onTopPage = [WelcomePage(logined: logined), HomePage()];
-  int _currentIndex = 0;
 
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
       theme: ThemeData(
           colorSchemeSeed: const Color(0xf0a3b18a), useMaterial3: true),
-      home: onTopPage[_currentIndex],
-      debugShowCheckedModeBanner: false,
+      home: WelcomePage(),
+
     );
   }
 }

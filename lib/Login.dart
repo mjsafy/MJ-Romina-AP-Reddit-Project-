@@ -96,22 +96,31 @@ class _LoginState extends State<Login> {
                         ])),
                 child: TextButton(
                     onPressed: () {
-                      String userName = userNameC.text;
-                      String password = passwordC.text;
-                      if (widget.user.username == userName &&
-                          widget.user.password == password) {
-                        userNameC.clear();
-                        passwordC.clear();
-                        Navigator.push(context, MaterialPageRoute(builder: (_) {
-                          return HomePage();
-                        }));
-                      }
-                      else
+                      if (userNameC.text.isEmpty || passwordC.text.isEmpty)
                         ScaffoldMessenger.of(context).showSnackBar(
                           const SnackBar(
-                            content: Text('Username or Password not Configure'),
+                            content: Text('Please Fill All of Fields'),
                           ),
                         );
+                      else {
+                        String userName = userNameC.text;
+                        String password = passwordC.text;
+                        if (widget.user.username == userName &&
+                            widget.user.password == password) {
+                          userNameC.clear();
+                          passwordC.clear();
+                          Navigator.push(context,
+                              MaterialPageRoute(builder: (_) {
+                            return HomePage();
+                          }));
+                        } else
+                          ScaffoldMessenger.of(context).showSnackBar(
+                            const SnackBar(
+                              content:
+                                  Text('Username or Password not Configure'),
+                            ),
+                          );
+                      }
                     },
                     child: Text(
                       "Continue",

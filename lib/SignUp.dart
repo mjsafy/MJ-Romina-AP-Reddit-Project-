@@ -5,9 +5,9 @@ import 'package:reddit/User.dart';
 import 'Login.dart';
 
 class SignUp extends StatefulWidget {
-  final  Function createUser;
+  final Function createUser;
 
-  SignUp({Key key , this.createUser }) : super(key: key);
+  SignUp({Key key, this.createUser}) : super(key: key);
 
   @override
   State<SignUp> createState() => _SignUpState();
@@ -118,17 +118,27 @@ class _SignUpState extends State<SignUp> {
                         ])),
                 child: TextButton(
                     onPressed: () {
-                      String userName = userNameC.text;
-                  String password = passwordC.text;
-                  String email =  emailC.text;
-                  User user = User(userName, password, email);
-                  widget.createUser(user);
-                  userNameC.clear();
-                  passwordC.clear();
-                  emailC.clear();
-                      Navigator.push(context, MaterialPageRoute(builder: (_) {
-                        return Login(user: user);
-                      }));
+                      if (userNameC.text.isEmpty ||
+                          passwordC.text.isEmpty ||
+                          emailC.text.isEmpty)
+                        ScaffoldMessenger.of(context).showSnackBar(
+                          const SnackBar(
+                            content: Text('Please Fill All of Fields'),
+                          ),
+                        );
+                      else {
+                        String userName = userNameC.text;
+                        String password = passwordC.text;
+                        String email = emailC.text;
+                        User user = User(userName, password, email);
+                        widget.createUser(user);
+                        userNameC.clear();
+                        passwordC.clear();
+                        emailC.clear();
+                        Navigator.push(context, MaterialPageRoute(builder: (_) {
+                          return Login(user: user);
+                        }));
+                      }
                     },
                     child: Text(
                       "Continue",

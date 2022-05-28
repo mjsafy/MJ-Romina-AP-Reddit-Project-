@@ -21,6 +21,10 @@ class _MyAppState extends State<MyApp> {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       theme: ThemeData(
+          buttonTheme: ButtonThemeData(
+            buttonColor: Color(0XFFFF4500),
+            textTheme: ButtonTextTheme.primary,
+          ),
           scaffoldBackgroundColor: Color(0xFFFFFFFF),
           colorScheme: ColorScheme.light(),
           appBarTheme: AppBarTheme(

@@ -58,7 +58,7 @@ class MyCustomFormState extends State<MyCustomForm> {
       appBar: AppBar(
         centerTitle: true,
         title: Text('create a new post'),
-        backgroundColor: Colors.green,
+        backgroundColor: Color(0XFFFF4500),
       ),
       body: Container(
           padding: EdgeInsets.symmetric(horizontal: 12.0),
@@ -104,12 +104,7 @@ class MyCustomFormState extends State<MyCustomForm> {
 
   Widget submitButton(BuildContext context) {
     return ElevatedButton(
-      style: ElevatedButton.styleFrom(
-        // Foreground color
-        onPrimary: Theme.of(context).colorScheme.onPrimary,
-        // Background color
-        primary: Theme.of(context).colorScheme.primary,
-      ).copyWith(elevation: ButtonStyleButton.allOrNull(0.0)),
+        // Fore
       onPressed: () {
         if (_formKey.currentState.validate()) {
           ScaffoldMessenger.of(context).showSnackBar(

@@ -130,7 +130,11 @@ class _SignUpState extends State<SignUp> {
                         String userName = userNameC.text;
                         String password = passwordC.text;
                         String email = emailC.text;
-                        User user = User(userName, password, email);
+                        User user = User(
+                          username: userName,
+                          password: password,
+                          email: email,
+                        );
                         widget.createUser(user);
                         userNameC.clear();
                         passwordC.clear();

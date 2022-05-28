@@ -27,7 +27,7 @@ class _HomePageState extends State<HomePage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        backgroundColor: Colors.lightGreenAccent,
+        backgroundColor: Color(0XFFFF4500),
         title: Text('Reddit', style: TextStyle(color: Colors.grey[800])),
       ),
       body: Center(
@@ -53,7 +53,7 @@ class _HomePageState extends State<HomePage> {
           ),
         ],
         currentIndex: _selectedIndex,
-        selectedItemColor: Colors.green[700],
+        selectedItemColor: Color(0XFFFF4500),
         unselectedItemColor: Colors.grey,
         onTap: (index) {
           setState(() {

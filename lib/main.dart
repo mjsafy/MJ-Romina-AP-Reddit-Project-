@@ -19,8 +19,14 @@ class _MyAppState extends State<MyApp> {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
+      debugShowCheckedModeBanner: false,
       theme: ThemeData(
-          colorSchemeSeed: const Color(0xf0a3b18a), useMaterial3: true),
+          scaffoldBackgroundColor: Color(0xFF1C1C1C),
+          colorScheme: ColorScheme.dark(),
+          appBarTheme: AppBarTheme(
+            backgroundColor: Color(0XFFFF4500),
+          )
+      ),
       home: WelcomePage(),
 
     );

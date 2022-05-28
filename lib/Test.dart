@@ -15,7 +15,7 @@ class Test {
       Post(
         posterUser: User(
           username: 'Aria',
-          ImageUrl: 'https://sobhesahel.com/upload/1605335986436.jpg'
+          ImageUrl: 'https://static-cdn.jtvnw.net/jtv_user_pictures/127bcd11-957b-4408-b4d5-9e6e6762cc8e-profile_image-70x70.png'
         ),
         content: 'Best chess player in the world ba ekhtelaf fahesh',
       ),

@@ -7,6 +7,13 @@ class Test {
     return [
       Post(
         posterUser: User(
+            username: 'Jadoyi',
+            ImageUrl: 'https://static-cdn.jtvnw.net/jtv_user_pictures/06d7a35d-aa6c-44f8-becc-d1b5d6847aad-profile_image-70x70.png'
+        ),
+        content: 'agha mikhay playlist mano play koni ba tempo play nakon nesf ahangaro play nemikone bote'
+      ),
+      Post(
+        posterUser: User(
             username: 'Flash',
             ImageUrl: 'https://static-cdn.jtvnw.net/jtv_user_pictures/c2a8145e-3d99-4497-8f5a-2be00e182a21-profile_image-70x70.png'
         ),

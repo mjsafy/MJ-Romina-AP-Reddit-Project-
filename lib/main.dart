@@ -21,8 +21,8 @@ class _MyAppState extends State<MyApp> {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       theme: ThemeData(
-          scaffoldBackgroundColor: Color(0xFF1C1C1C),
-          colorScheme: ColorScheme.dark(),
+          scaffoldBackgroundColor: Color(0xFFFFFFFF),
+          colorScheme: ColorScheme.light(),
           appBarTheme: AppBarTheme(
             backgroundColor: Color(0XFFFF4500),
           )

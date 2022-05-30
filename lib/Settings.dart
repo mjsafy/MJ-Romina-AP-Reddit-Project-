@@ -3,6 +3,7 @@ import 'package:reddit/User.dart';
 
 import 'NewChannel.dart';
 import 'Profile.dart';
+import 'SavedPosts.dart';
 
 class Settings extends StatefulWidget {
   @override
@@ -38,6 +39,20 @@ class _SettingsState extends State<Settings> {
           onTap: () {
             Navigator.push(context, MaterialPageRoute(builder: (_) {
               return NewChannel();
+            }));
+          },
+        ),
+        // ListTile for saved posts
+        ListTile(
+          title: Text(
+            "Saved Posts",
+            style: TextStyle(
+              fontSize: 23,
+            ),
+          ),
+          onTap: () {
+            Navigator.push(context, MaterialPageRoute(builder: (_) {
+              return SavedPosts();
             }));
           },
         ),

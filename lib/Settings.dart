@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:reddit/User.dart';
 
+import 'NewChannel.dart';
 import 'Profile.dart';
 
 class Settings extends StatefulWidget {
@@ -24,6 +25,19 @@ class _SettingsState extends State<Settings> {
           onTap: () {
             Navigator.push(context, MaterialPageRoute(builder: (_) {
               return Profile();
+            }));
+          },
+        ),
+        ListTile(
+          title: Text(
+            "New Channel",
+            style: TextStyle(
+              fontSize: 23,
+            ),
+          ),
+          onTap: () {
+            Navigator.push(context, MaterialPageRoute(builder: (_) {
+              return NewChannel();
             }));
           },
         ),

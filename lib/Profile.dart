@@ -1,3 +1,4 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:reddit/User.dart';
@@ -36,6 +37,7 @@ class _ProfileState extends State<Profile> {
   @override
   Widget build(BuildContext context) {
     double w = MediaQuery.of(context).size.width;
+    double h = MediaQuery.of(context).size.height;
     User user = User(
         username: "mjsafy",
         password: "mjavads",
@@ -45,17 +47,34 @@ class _ProfileState extends State<Profile> {
     return Scaffold(
       appBar: AppBar(),
       body: Container(
+        decoration: BoxDecoration(
+            gradient: LinearGradient(
+                begin: Alignment.topLeft,
+                end: Alignment.bottomRight,
+                colors: [
+              Colors.purple,
+              Colors.black,
+              Colors.black,
+              Colors.purple,
+            ])),
         child: Column(
           children: [
             Container(
-              decoration:
-                  BoxDecoration(border: Border(bottom: BorderSide(width: 1))),
+              decoration: BoxDecoration(
+                  gradient: LinearGradient(
+                      begin: Alignment.topRight,
+                      end: Alignment.bottomLeft,
+                      colors: [
+                        Colors.deepPurple,
+                        Colors.deepOrange,
+                      ]),
+                  border: Border(bottom: BorderSide(width: 1))),
               child: Row(
                 children: [
                   Container(
                     padding:
                         EdgeInsets.symmetric(horizontal: w / 5, vertical: 20),
-                    child: Text("Name"),
+                    child: Text("Name" ,style: TextStyle(fontWeight: FontWeight.bold),),
                   ),
                   Container(
                     padding: EdgeInsets.symmetric(vertical: 20),
@@ -65,14 +84,21 @@ class _ProfileState extends State<Profile> {
               ),
             ),
             Container(
-              decoration:
-                  BoxDecoration(border: Border(bottom: BorderSide(width: 1))),
+              decoration: BoxDecoration(
+                  gradient: LinearGradient(
+                      begin: Alignment.topRight,
+                      end: Alignment.bottomLeft,
+                      colors: [
+                        Colors.deepOrange,
+                        Colors.deepPurple,
+                      ]),
+                  border: Border(bottom: BorderSide(width: 1))),
               child: Row(
                 children: [
                   Container(
                     padding:
                         EdgeInsets.symmetric(horizontal: w / 5, vertical: 20),
-                    child: Text("Email"),
+                    child: Text("Email",style: TextStyle(fontWeight: FontWeight.bold)),
                   ),
                   Container(
                     padding: EdgeInsets.symmetric(vertical: 20),
@@ -82,14 +108,21 @@ class _ProfileState extends State<Profile> {
               ),
             ),
             Container(
-              decoration:
-                  BoxDecoration(border: Border(bottom: BorderSide(width: 1))),
+              decoration: BoxDecoration(
+                  gradient: LinearGradient(
+                      begin: Alignment.topRight,
+                      end: Alignment.bottomLeft,
+                      colors: [
+                        Colors.deepPurple,
+                        Colors.deepOrange,
+                      ]),
+                  border: Border(bottom: BorderSide(width: 1))),
               child: Row(
                 children: [
                   Container(
                     padding:
                         EdgeInsets.symmetric(horizontal: w / 5, vertical: 20),
-                    child: Text("Id    "),
+                    child: Text("   Id   ",style: TextStyle(fontWeight: FontWeight.bold)),
                   ),
                   Container(
                     padding: EdgeInsets.symmetric(vertical: 20),
@@ -99,46 +132,90 @@ class _ProfileState extends State<Profile> {
               ),
             ),
             Container(
+              padding: EdgeInsets.symmetric(vertical: 4),
               decoration:
                   BoxDecoration(border: Border(bottom: BorderSide(width: 1))),
               child: TextField(
                 controller: userNameC,
                 decoration: InputDecoration(
-                    hintText: "Enter Your New UserName",
-                    contentPadding: EdgeInsets.symmetric(horizontal: 20)),
+                  hintText: "Enter Your New UserName",
+                  fillColor: Colors.tealAccent,
+                  filled: true,
+                  contentPadding:
+                      EdgeInsets.symmetric(vertical: 12, horizontal: 20),
+                  enabledBorder: OutlineInputBorder(
+                      borderSide: BorderSide(color: Colors.transparent),
+                      borderRadius: BorderRadius.all(Radius.circular(40))),
+                ),
               ),
             ),
             Container(
+              padding: EdgeInsets.symmetric(vertical: 4),
               decoration:
                   BoxDecoration(border: Border(bottom: BorderSide(width: 1))),
               child: TextField(
                 controller: passwordC,
                 decoration: InputDecoration(
-                    hintText: "Enter Your New Password",
-                    contentPadding: EdgeInsets.symmetric(horizontal: 20)),
+                  fillColor: Colors.tealAccent,
+                  filled: true,
+                  contentPadding:
+                      EdgeInsets.symmetric(vertical: 12, horizontal: 20),
+                  enabledBorder: OutlineInputBorder(
+                      borderSide: BorderSide(color: Colors.transparent),
+                      borderRadius: BorderRadius.all(Radius.circular(40))),
+                  hintText: "Enter Your New Password",
+                ),
               ),
             ),
             Container(
+              padding: EdgeInsets.symmetric(vertical: 4),
               decoration:
                   BoxDecoration(border: Border(bottom: BorderSide(width: 1))),
               child: TextField(
                 controller: password2C,
                 decoration: InputDecoration(
-                    hintText: "Repeat Your Password",
-                    contentPadding: EdgeInsets.symmetric(horizontal: 20)),
+                  hintText: "Repeat Your Password",
+                  fillColor: Colors.tealAccent,
+                  filled: true,
+                  contentPadding:
+                      EdgeInsets.symmetric(vertical: 12, horizontal: 20),
+                  enabledBorder: OutlineInputBorder(
+                      borderSide: BorderSide(color: Colors.transparent),
+                      borderRadius: BorderRadius.all(Radius.circular(40))),
+                ),
               ),
             ),
             Container(
+              padding: EdgeInsets.symmetric(vertical: 4),
               decoration:
                   BoxDecoration(border: Border(bottom: BorderSide(width: 1))),
               child: TextField(
                 controller: emailC,
                 decoration: InputDecoration(
-                    hintText: "Enter Your New Email",
-                    contentPadding: EdgeInsets.symmetric(horizontal: 20)),
+                  hintText: "Enter Your New Email",
+                  fillColor: Colors.tealAccent,
+                  filled: true,
+                  contentPadding:
+                      EdgeInsets.symmetric(vertical: 12, horizontal: 20),
+                  enabledBorder: OutlineInputBorder(
+                      borderSide: BorderSide(color: Colors.transparent),
+                      borderRadius: BorderRadius.all(Radius.circular(40))),
+                ),
               ),
             ),
             Container(
+              padding: EdgeInsets.symmetric(vertical: 4),
+              width: w / 2.5,
+              height: h / 12.5,
+              decoration: const BoxDecoration(
+                  borderRadius: BorderRadius.all(Radius.circular(50)),
+                  gradient: LinearGradient(
+                      begin: Alignment.topRight,
+                      end: Alignment.bottomLeft,
+                      colors: [
+                        Colors.deepOrange,
+                        Colors.deepPurple,
+                      ])),
               child: TextButton(
                 onPressed: () {
                   setState(() {
@@ -157,7 +234,11 @@ class _ProfileState extends State<Profile> {
                     if (!emailC.text.isEmpty) user.email = emailC.text;
                   });
                 },
-              child: Text("Confirm"),),
+                child: Text(
+                  "Confirm",
+                  style: TextStyle(color: Colors.white, fontSize: 20),
+                ),
+              ),
             ),
           ],
         ),

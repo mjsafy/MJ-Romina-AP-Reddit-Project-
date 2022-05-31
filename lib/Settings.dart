@@ -22,7 +22,7 @@ class _SettingsState extends State<Settings> {
             "Profile",
             style: TextStyle(
               fontSize: 23,
-              fontFamily: ''
+              fontFamily: 'Roboto',
             ),
           ),
           onTap: () {

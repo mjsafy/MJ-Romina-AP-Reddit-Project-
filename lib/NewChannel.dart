@@ -17,6 +17,8 @@ class NewChannel extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    double w = MediaQuery.of(context).size.width;
+    double h = MediaQuery.of(context).size.height;
     return Scaffold(
         appBar: AppBar(
           title: Text('New Channel'),
@@ -36,8 +38,8 @@ class NewChannel extends StatelessWidget {
             crossAxisAlignment: CrossAxisAlignment.center,
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
-              Container(
-                padding: EdgeInsets.symmetric(vertical: 4),
+              Container(padding: EdgeInsets.symmetric(vertical: 4),
+
                 child: TextField(
                   decoration: const InputDecoration(
                       fillColor: Colors.tealAccent,
@@ -52,6 +54,8 @@ class NewChannel extends StatelessWidget {
                 ),
               ),
               Container(
+                width: w / 2.5,
+                height: h / 12.5,
                 padding: EdgeInsets.symmetric(vertical: 4),
                 decoration: const BoxDecoration(
                     borderRadius: BorderRadius.all(Radius.circular(50)),
@@ -63,7 +67,10 @@ class NewChannel extends StatelessWidget {
                           Colors.deepPurple,
                         ])),
                 child: TextButton(
-                  child: Text('Create',style: TextStyle(fontSize: 17, color: Colors.white),),
+                  child: Text(
+                    'Create',
+                    style: TextStyle(fontSize: 20, color: Colors.white),
+                  ),
                   onPressed: () {
                     if (nameC.text.isNotEmpty) {
                       String name = nameC.text;

@@ -1,125 +1,120 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
-import 'Post.dart';
+class Create extends StatefulWidget {
+  Create({Key key}) : super(key: key);
 
-//a page that allows the user to create a new post
-class Create extends StatelessWidget {
+  @override
+  State<Create> createState() => _CreateState();
+}
+
+class _CreateState extends State<Create> {
+  TextEditingController titleC;
+
+  TextEditingController descC;
+
+  @override
+  void initState() {
+    titleC = TextEditingController();
+    descC = TextEditingController();
+    super.initState();
+  }
+
+  @override
+  void dispose() {
+    titleC.dispose();
+    descC.dispose();
+    super.dispose();
+  }
+
   @override
   Widget build(BuildContext context) {
-    return Center(
+    double w = MediaQuery.of(context).size.width;
+    double h = MediaQuery.of(context).size.height;
+    return Container(
+      decoration: BoxDecoration(
+          gradient: LinearGradient(
+              begin: Alignment.topLeft,
+              end: Alignment.bottomRight,
+              colors: [
+            Colors.purple,
+            Colors.black,
+            Colors.black,
+            Colors.purple,
+          ])),
+      alignment: Alignment.center,
       child: Column(
+        crossAxisAlignment: CrossAxisAlignment.center,
         mainAxisAlignment: MainAxisAlignment.center,
-        children: <Widget>[
-          Text("Create a new post"),
-          RaisedButton(
-            child: Text("Create"),
-            onPressed: () async {
-              final result = await Navigator.of(context).push(
-                MaterialPageRoute(
-                  builder: (_) => MyCustomForm(),
-                ),
-              );
-              if (result is Post) {
-                //TODO: add the new post to the list of posts
-              }
-            },
-          )
+        children: [
+          Container(
+            padding: EdgeInsets.symmetric(vertical: 4),
+            child: TextField(
+                controller: titleC,
+                decoration: const InputDecoration(
+                  fillColor: Colors.tealAccent,
+                  filled: true,
+                  contentPadding:
+                      EdgeInsets.symmetric(vertical: 12, horizontal: 20),
+                  enabledBorder: OutlineInputBorder(
+                      borderSide: BorderSide(color: Colors.transparent),
+                      borderRadius: BorderRadius.all(Radius.circular(40))),
+                  hintText: "Title",
+                )),
+          ),
+          Container(
+            padding: EdgeInsets.symmetric(vertical: 4),
+            child: TextField(
+                minLines: 3,
+                maxLines: 5,
+                controller: descC,
+                decoration: const InputDecoration(
+                  fillColor: Colors.tealAccent,
+                  filled: true,
+                  contentPadding:
+                      EdgeInsets.symmetric(vertical: 12, horizontal: 20),
+                  enabledBorder: OutlineInputBorder(
+                      borderSide: BorderSide(color: Colors.transparent),
+                      borderRadius: BorderRadius.all(Radius.circular(40))),
+                  hintText: "Description",
+                )),
+          ),
+          Container(
+              margin: EdgeInsets.symmetric(vertical: 4),
+              width: w / 2.5,
+              height: h / 12.5,
+              decoration: const BoxDecoration(
+                  borderRadius: BorderRadius.all(Radius.circular(50)),
+                  gradient: LinearGradient(
+                      begin: Alignment.topRight,
+                      end: Alignment.bottomLeft,
+                      colors: [
+                        Colors.deepOrange,
+                        Colors.deepPurple,
+                      ])),
+              child: TextButton(
+                  onPressed: () {
+                    if(titleC.text.isEmpty)
+                      ScaffoldMessenger.of(context).showSnackBar(
+                        const SnackBar(
+                          content:
+                          Text('Enter Title'),
+                        ),
+                      );
+                    else{
+                      ScaffoldMessenger.of(context).showSnackBar(
+                        const SnackBar(
+                          content: Text('Post Created Successfully'),
+                        ),
+                      );
+                    }
+                  },
+                  child: Text(
+                    "Create",
+                    style: TextStyle(fontSize: 20, color: Colors.white),
+                  )))
         ],
       ),
-    );
-  }
-}
-
-// Create a Form widget.
-class MyCustomForm extends StatefulWidget {
-  @override
-  MyCustomFormState createState() {
-    return MyCustomFormState();
-  }
-}
-
-// Create a corresponding State class.
-// This class holds data related to the form.
-class MyCustomFormState extends State<MyCustomForm> {
-  // Create a global key that uniquely identifies the Form widget
-  // and allows validation of the form.
-  //
-  // Note: This is a GlobalKey<FormState>,
-  // not a GlobalKey<MyCustomFormState>.
-  final _formKey = GlobalKey<FormState>();
-  final _titleController = TextEditingController();
-  final _descriptionController = TextEditingController();
-
-  @override
-  Widget build(BuildContext context) {
-    final _spacer = SizedBox(height: 20);
-    // Build a Form widget using the _formKey created above.
-    return Scaffold(
-      appBar: AppBar(
-        centerTitle: true,
-        title: Text('create a new post'),
-        backgroundColor: Color(0XFFFF4500),
-      ),
-      body: Container(
-          padding: EdgeInsets.symmetric(horizontal: 12.0),
-          child: Form(
-            key: _formKey,
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                TextFormField(
-                  controller: _titleController,
-                  decoration: InputDecoration(
-                    labelText: 'Title',
-                  ),
-                  validator: (value) {
-                    if (value == null || value.isEmpty || value.length < 4) {
-                      return 'Please enter valid text';
-                    }
-                    return null;
-                  },
-                ),
-                _spacer,
-                TextFormField(
-                  minLines: 3,
-                  maxLines: 5,
-                  controller: _descriptionController,
-                  decoration: InputDecoration(
-                    labelText: 'body',
-                  ),
-                  validator: (value) {
-                    if (value == null || value.isEmpty) {
-                      return 'Description must have number';
-                    }
-                    return null;
-                  },
-                ),
-                _spacer,
-                submitButton(context)
-              ],
-            ),
-          )),
-    );
-  }
-
-  Widget submitButton(BuildContext context) {
-    return ElevatedButton(
-        // Fore
-      onPressed: () {
-        if (_formKey.currentState.validate()) {
-          ScaffoldMessenger.of(context).showSnackBar(
-            const SnackBar(
-              content: Text('Post released'),
-            ),
-          );
-          Navigator.of(context).pop(
-            Post(
-              releaseDate: DateTime.now(),
-            ),
-          );
-        }
-      },
-      child: const Text('Submit'),
     );
   }
 }

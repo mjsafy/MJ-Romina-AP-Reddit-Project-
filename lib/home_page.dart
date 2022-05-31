@@ -26,7 +26,7 @@ class _HomePageState extends State<HomePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
+      appBar: AppBar(centerTitle: true,
         backgroundColor: Color(0XFFFF4500),
         title: Text('Reddit', style: TextStyle(color: Colors.grey[800])),
       ),

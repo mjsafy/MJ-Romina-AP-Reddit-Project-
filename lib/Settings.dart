@@ -17,10 +17,12 @@ class _SettingsState extends State<Settings> {
         child: Column(
       children: [
         ListTile(
+          tileColor: Colors.teal,
           title: Text(
             "Profile",
             style: TextStyle(
               fontSize: 23,
+              fontFamily: ''
             ),
           ),
           onTap: () {
@@ -30,6 +32,7 @@ class _SettingsState extends State<Settings> {
           },
         ),
         ListTile(
+          tileColor: Colors.tealAccent,
           title: Text(
             "New Channel",
             style: TextStyle(
@@ -44,6 +47,7 @@ class _SettingsState extends State<Settings> {
         ),
         // ListTile for saved posts
         ListTile(
+          tileColor: Colors.teal,
           title: Text(
             "Saved Posts",
             style: TextStyle(

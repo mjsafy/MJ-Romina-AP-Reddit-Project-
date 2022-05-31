@@ -50,7 +50,7 @@ class NewChannel extends StatelessWidget {
                           borderSide: BorderSide(color: Colors.transparent),
                           borderRadius: BorderRadius.all(Radius.circular(40))),
                       hintText: "Enter Channel Name",
-                      prefixIcon: Icon(CupertinoIcons.profile_circled)),
+                  )
                 ),
               ),
               Container(

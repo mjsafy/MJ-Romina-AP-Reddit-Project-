@@ -45,7 +45,10 @@ class _ProfileState extends State<Profile> {
         email: "mj@gmail.com",
         id: "52");
     return Scaffold(
-      appBar: AppBar(),
+      appBar: AppBar(
+        title: Text("Profile"),
+        centerTitle: true,
+      ),
       body: Container(
         decoration: BoxDecoration(
             gradient: LinearGradient(
@@ -74,7 +77,10 @@ class _ProfileState extends State<Profile> {
                   Container(
                     padding:
                         EdgeInsets.symmetric(horizontal: w / 5, vertical: 20),
-                    child: Text("Name" ,style: TextStyle(fontWeight: FontWeight.bold),),
+                    child: Text(
+                      "Name",
+                      style: TextStyle(fontWeight: FontWeight.bold),
+                    ),
                   ),
                   Container(
                     padding: EdgeInsets.symmetric(vertical: 20),
@@ -98,7 +104,8 @@ class _ProfileState extends State<Profile> {
                   Container(
                     padding:
                         EdgeInsets.symmetric(horizontal: w / 5, vertical: 20),
-                    child: Text("Email",style: TextStyle(fontWeight: FontWeight.bold)),
+                    child: Text("Email",
+                        style: TextStyle(fontWeight: FontWeight.bold)),
                   ),
                   Container(
                     padding: EdgeInsets.symmetric(vertical: 20),
@@ -122,7 +129,8 @@ class _ProfileState extends State<Profile> {
                   Container(
                     padding:
                         EdgeInsets.symmetric(horizontal: w / 5, vertical: 20),
-                    child: Text("   Id   ",style: TextStyle(fontWeight: FontWeight.bold)),
+                    child: Text("   Id   ",
+                        style: TextStyle(fontWeight: FontWeight.bold)),
                   ),
                   Container(
                     padding: EdgeInsets.symmetric(vertical: 20),

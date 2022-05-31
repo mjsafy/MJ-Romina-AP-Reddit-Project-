@@ -1,5 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+
 class SavedPosts extends StatefulWidget {
   const SavedPosts({Key key}) : super(key: key);
 
@@ -10,6 +11,20 @@ class SavedPosts extends StatefulWidget {
 class _SavedPostsState extends State<SavedPosts> {
   @override
   Widget build(BuildContext context) {
-    return Scaffold(appBar: AppBar(),body: Container(),);
+    return Scaffold(
+      appBar: AppBar(title: Text('Saved Posts') , centerTitle: true,),
+      body: Container(
+        decoration: BoxDecoration(
+            gradient: LinearGradient(
+                begin: Alignment.topLeft,
+                end: Alignment.bottomRight,
+                colors: [
+              Colors.purple,
+              Colors.black,
+              Colors.black,
+              Colors.purple,
+            ])),
+      ),
+    );
   }
 }

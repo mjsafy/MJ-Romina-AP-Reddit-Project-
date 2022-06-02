@@ -69,6 +69,7 @@ class _LoginState extends State<Login> {
             Container(
               padding: EdgeInsets.symmetric(vertical: 4),
               child: TextField(
+                  obscureText: true,
                   controller: passwordC,
                   decoration: const InputDecoration(
                       fillColor: Colors.tealAccent,

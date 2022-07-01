@@ -11,22 +11,26 @@ import 'Settings.dart';
 class HomePage extends StatefulWidget {
   static User me;
 
-  HomePage( {me , Key key}) : super(key: key);
+  HomePage({me, Key key}) : super(key: key);
 
   @override
   _HomePageState createState() => _HomePageState();
 }
 
 class _HomePageState extends State<HomePage> {
-
-
-  List<Widget> pages = [Feed(me: HomePage.me), Channels(), Create(), Settings(me: HomePage.me,)];
+  List<Widget> pages = [
+    Feed(me: HomePage.me),
+    Channels(),
+    Create(),
+    Settings(me: HomePage.me)
+  ];
   int _selectedIndex = 0;
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(centerTitle: true,
+      appBar: AppBar(
+        centerTitle: true,
         backgroundColor: Color(0XFFFF4500),
         title: Text('Reddit', style: TextStyle(color: Colors.grey[800])),
       ),

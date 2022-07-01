@@ -6,7 +6,7 @@ import 'package:reddit/User.dart';
 
 class NewChannel extends StatelessWidget {
   User me;
-  NewChannel({this.me , Key key}) : super(key: key);
+  NewChannel({this.me, Key key}) : super(key: key);
   TextEditingController nameC;
 
   @override
@@ -42,20 +42,19 @@ class NewChannel extends StatelessWidget {
             crossAxisAlignment: CrossAxisAlignment.center,
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
-              Container(padding: EdgeInsets.symmetric(vertical: 4),
-
+              Container(
+                padding: EdgeInsets.symmetric(vertical: 4),
                 child: TextField(
-                  decoration: const InputDecoration(
-                      fillColor: Colors.tealAccent,
-                      filled: true,
-                      contentPadding:
-                          EdgeInsets.symmetric(vertical: 12, horizontal: 20),
-                      enabledBorder: OutlineInputBorder(
-                          borderSide: BorderSide(color: Colors.transparent),
-                          borderRadius: BorderRadius.all(Radius.circular(40))),
-                      hintText: "Enter Channel Name",
-                  )
-                ),
+                    decoration: const InputDecoration(
+                  fillColor: Colors.tealAccent,
+                  filled: true,
+                  contentPadding:
+                      EdgeInsets.symmetric(vertical: 12, horizontal: 20),
+                  enabledBorder: OutlineInputBorder(
+                      borderSide: BorderSide(color: Colors.transparent),
+                      borderRadius: BorderRadius.all(Radius.circular(40))),
+                  hintText: "Enter Channel Name",
+                )),
               ),
               Container(
                 width: w / 2.5,
@@ -80,12 +79,11 @@ class NewChannel extends StatelessWidget {
                       String name = nameC.text;
                       () async {
                         await Socket.connect("10.0.2.2", 555).then(
-                              (ss) {
-                            ss.write("addChannel-"+name+"-"+me.username);
+                          (ss) {
+                            ss.write("addChannel-" + name + "-" + me.username);
                             ss.flush();
                             ss.listen((response) {
                               print(String.fromCharCodes(response));
-
                             });
                           },
                         );

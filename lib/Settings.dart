@@ -44,7 +44,9 @@ class _SettingsState extends State<Settings> {
                 ),
                 onTap: () {
                   Navigator.push(context, MaterialPageRoute(builder: (_) {
-                    return Profile(me: widget.me,);
+                    return Profile(
+                      me: widget.me,
+                    );
                   }));
                 },
               ),
@@ -63,7 +65,9 @@ class _SettingsState extends State<Settings> {
                 ),
                 onTap: () {
                   Navigator.push(context, MaterialPageRoute(builder: (_) {
-                    return NewChannel(me: widget.me,);
+                    return NewChannel(
+                      me: widget.me,
+                    );
                   }));
                 },
               ),

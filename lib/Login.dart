@@ -1,3 +1,5 @@
+import 'dart:io';
+
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:reddit/User.dart';
@@ -110,9 +112,22 @@ class _LoginState extends State<Login> {
                             widget.user.password == password) {
                           userNameC.clear();
                           passwordC.clear();
+                          () async {
+                            await Socket.connect("10.0.2.2", 555).then(
+                              (ss) {
+                                ss.write("login-" + userName + "-" + password);
+                                ss.flush();
+                                ss.listen((response) {
+                                  print(String.fromCharCodes(response));
+                                });
+                              },
+                            );
+                          };
                           Navigator.push(context,
                               MaterialPageRoute(builder: (_) {
-                            return HomePage();
+                            return HomePage(
+                              me: widget.user,
+                            );
                           }));
                         } else
                           ScaffoldMessenger.of(context).showSnackBar(

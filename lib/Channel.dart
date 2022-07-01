@@ -3,9 +3,9 @@ import 'package:flutter/cupertino.dart';
 import 'Post.dart';
 import 'User.dart';
 
-class Channel{
-  String name ;
-  Image image ;
+class Channel {
+  String name;
+  Image image;
   User admin;
   List<Post> postList;
 

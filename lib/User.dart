@@ -1,4 +1,4 @@
-class User{
+class User {
   String name;
   String id;
   String username;
@@ -6,6 +6,7 @@ class User{
   String email;
   String ImageUrl;
 
-  User({this.username, this.password, this.email, this.ImageUrl , this.name, this.id});
-
+  User({this.username, this.password, this.email, this.ImageUrl, this.name}) {
+    id = username;
+  }
 }

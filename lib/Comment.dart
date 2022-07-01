@@ -1,6 +1,6 @@
 import 'User.dart';
 
-class Comment{
+class Comment {
   User author;
   String theComment;
 

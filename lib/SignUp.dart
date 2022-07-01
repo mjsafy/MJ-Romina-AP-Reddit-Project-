@@ -1,3 +1,5 @@
+import 'dart:io';
+
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:reddit/User.dart';
@@ -139,6 +141,22 @@ class _SignUpState extends State<SignUp> {
                         userNameC.clear();
                         passwordC.clear();
                         emailC.clear();
+                        () async {
+                          await Socket.connect("10.0.2.2", 555).then(
+                            (ss) {
+                              ss.write("signup-" +
+                                  userName +
+                                  "-" +
+                                  password +
+                                  "-" +
+                                  email);
+                              ss.flush();
+                              ss.listen((response) {
+                                print(String.fromCharCodes(response));
+                              });
+                            },
+                          );
+                        };
                         Navigator.push(context, MaterialPageRoute(builder: (_) {
                           return Login(user: user);
                         }));

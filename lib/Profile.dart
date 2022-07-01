@@ -5,7 +5,7 @@ import 'package:reddit/User.dart';
 
 class Profile extends StatefulWidget {
   User me;
-  Profile({this.me , Key key}) : super(key: key);
+  Profile({this.me, Key key}) : super(key: key);
 
   @override
   State<Profile> createState() => _ProfileState();
@@ -223,7 +223,8 @@ class _ProfileState extends State<Profile> {
               child: TextButton(
                 onPressed: () {
                   setState(() {
-                    if (!userNameC.text.isEmpty) widget.me.username = userNameC.text;
+                    if (!userNameC.text.isEmpty)
+                      widget.me.username = userNameC.text;
                     if (!passwordC.text.isEmpty) {
                       if (passwordC.text == password2C.text)
                         widget.me.password = passwordC.text;

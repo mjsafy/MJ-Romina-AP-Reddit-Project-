@@ -12,7 +12,10 @@ class _SavedPostsState extends State<SavedPosts> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: Text('Saved Posts') , centerTitle: true,),
+      appBar: AppBar(
+        title: Text('Saved Posts'),
+        centerTitle: true,
+      ),
       body: Container(
         decoration: BoxDecoration(
             gradient: LinearGradient(

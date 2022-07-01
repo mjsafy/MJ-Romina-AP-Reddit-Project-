@@ -1,4 +1,7 @@
+import 'dart:io';
+
 import 'package:flutter/material.dart';
+import 'package:reddit/Convertor.dart';
 
 import 'Channel.dart';
 import 'ChannelDetails.dart';
@@ -16,9 +19,19 @@ class _ChannelsState extends State<Channels> {
   @override
   Widget build(BuildContext context) {
     List<Channel> channelList = [];
-    channelList.add(Channel(name: "c1"));
-    channelList.add(Channel(name: "c2"));
-    channelList.add(Channel(name: "c3"));
+    () async {
+      await Socket.connect("10.0.2.2", 555).then(
+        (ss) {
+          ss.write("getAllChannels");
+          ss.flush();
+          ss.listen((response) {
+            String channels = String.fromCharCodes(response);
+            channelList.addAll(Convertor.getChannels(channels));
+          });
+        },
+      );
+    };
+
     return Container(
       decoration: BoxDecoration(
           gradient: LinearGradient(

@@ -13,6 +13,7 @@ class Convertor {
     String email = split.elementAt(1).split("-").elementAt(1);
     return User(username: uname, password: password, email: email);
   }
+
   //t1-d1-c1/t2-d2-c2/.../\n
   static List<Post> getPosts(String command) {
     List<String> split = command.split("/");
@@ -65,5 +66,14 @@ class Convertor {
       );
     };
     return Channel(name: name, admin: admin);
+  }
+
+  static List<Channel> getChannels(String command) {
+    List<String> eachChannels = command.split("/");
+    List<Channel> channels = [];
+    for (var element in eachChannels) {
+      channels.add(getChannel(element));
+    }
+    return channels;
   }
 }

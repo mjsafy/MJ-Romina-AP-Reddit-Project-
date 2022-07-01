@@ -5,6 +5,7 @@ import 'Channel.dart';
 import 'User.dart';
 
 class Post {
+  String title;
   User posterUser;
   Channel posterChannel;
   DateTime releaseDate;
@@ -16,6 +17,7 @@ class Post {
   List<User> likers = [];
 
   Post({
+    this.title,
     this.posterUser,
     this.posterChannel,
     this.releaseDate,

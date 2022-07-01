@@ -11,7 +11,7 @@ import 'Settings.dart';
 class HomePage extends StatefulWidget {
   static User me;
 
-  HomePage( {Key key}) : super(key: key);
+  HomePage( {me , Key key}) : super(key: key);
 
   @override
   _HomePageState createState() => _HomePageState();
@@ -20,7 +20,7 @@ class HomePage extends StatefulWidget {
 class _HomePageState extends State<HomePage> {
 
 
-  List<Widget> pages = [Feed(), Channels(), Create(), Settings()];
+  List<Widget> pages = [Feed(me: HomePage.me), Channels(), Create(), Settings(me: HomePage.me,)];
   int _selectedIndex = 0;
 
   @override

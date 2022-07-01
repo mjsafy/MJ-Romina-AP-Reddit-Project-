@@ -4,7 +4,8 @@ import 'package:flutter/services.dart';
 import 'package:reddit/User.dart';
 
 class Profile extends StatefulWidget {
-  const Profile({Key key}) : super(key: key);
+  User me;
+  Profile({this.me , Key key}) : super(key: key);
 
   @override
   State<Profile> createState() => _ProfileState();
@@ -38,12 +39,7 @@ class _ProfileState extends State<Profile> {
   Widget build(BuildContext context) {
     double w = MediaQuery.of(context).size.width;
     double h = MediaQuery.of(context).size.height;
-    User user = User(
-        username: "mjsafy",
-        password: "mjavads",
-        name: "mj",
-        email: "mj@gmail.com",
-        id: "52");
+
     return Scaffold(
       appBar: AppBar(
         title: Text("Profile"),
@@ -84,7 +80,7 @@ class _ProfileState extends State<Profile> {
                   ),
                   Container(
                     padding: EdgeInsets.symmetric(vertical: 20),
-                    child: Text(user.name),
+                    child: Text(widget.me.name),
                   ),
                 ],
               ),
@@ -109,7 +105,7 @@ class _ProfileState extends State<Profile> {
                   ),
                   Container(
                     padding: EdgeInsets.symmetric(vertical: 20),
-                    child: Text(user.email),
+                    child: Text(widget.me.email),
                   ),
                 ],
               ),
@@ -134,7 +130,7 @@ class _ProfileState extends State<Profile> {
                   ),
                   Container(
                     padding: EdgeInsets.symmetric(vertical: 20),
-                    child: Text(user.id),
+                    child: Text(widget.me.id),
                   ),
                 ],
               ),
@@ -227,10 +223,10 @@ class _ProfileState extends State<Profile> {
               child: TextButton(
                 onPressed: () {
                   setState(() {
-                    if (!userNameC.text.isEmpty) user.username = userNameC.text;
+                    if (!userNameC.text.isEmpty) widget.me.username = userNameC.text;
                     if (!passwordC.text.isEmpty) {
                       if (passwordC.text == password2C.text)
-                        user.password = passwordC.text;
+                        widget.me.password = passwordC.text;
                       else
                         ScaffoldMessenger.of(context).showSnackBar(
                           const SnackBar(
@@ -239,7 +235,7 @@ class _ProfileState extends State<Profile> {
                           ),
                         );
                     }
-                    if (!emailC.text.isEmpty) user.email = emailC.text;
+                    if (!emailC.text.isEmpty) widget.me.email = emailC.text;
                   });
                 },
                 child: Text(

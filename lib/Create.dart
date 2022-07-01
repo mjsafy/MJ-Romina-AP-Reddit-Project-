@@ -1,8 +1,13 @@
+import 'dart:io';
+
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:reddit/home_page.dart';
+
+import 'User.dart';
 
 class Create extends StatefulWidget {
-  Create({Key key}) : super(key: key);
+  Create({ Key key}) : super(key: key);
 
   @override
   State<Create> createState() => _CreateState();
@@ -102,6 +107,17 @@ class _CreateState extends State<Create> {
                         ),
                       );
                     else{
+                      () async {
+                        await Socket.connect("10.0.2.2", 555).then(
+                              (ss) {
+                            ss.write("addPost-"+titleC.text+"-"+descC.text);
+                            ss.flush();
+                            ss.listen((response) {
+                              print( String.fromCharCodes(response));
+                            });
+                          },
+                        );
+                      };
                       ScaffoldMessenger.of(context).showSnackBar(
                         const SnackBar(
                           content: Text('Post Created Successfully'),

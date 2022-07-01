@@ -6,6 +6,10 @@ import 'Profile.dart';
 import 'SavedPosts.dart';
 
 class Settings extends StatefulWidget {
+  User me;
+
+  Settings({this.me});
+
   @override
   State<Settings> createState() => _SettingsState();
 }
@@ -40,7 +44,7 @@ class _SettingsState extends State<Settings> {
                 ),
                 onTap: () {
                   Navigator.push(context, MaterialPageRoute(builder: (_) {
-                    return Profile();
+                    return Profile(me: widget.me,);
                   }));
                 },
               ),
@@ -59,7 +63,7 @@ class _SettingsState extends State<Settings> {
                 ),
                 onTap: () {
                   Navigator.push(context, MaterialPageRoute(builder: (_) {
-                    return NewChannel();
+                    return NewChannel(me: widget.me,);
                   }));
                 },
               ),

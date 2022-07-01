@@ -2,8 +2,13 @@ import 'package:flutter/material.dart';
 
 import 'Post.dart';
 import 'Test.dart';
+import 'User.dart';
 
 class Feed extends StatefulWidget {
+  User me;
+
+  Feed({this.me});
+
   List<Post> posts = Test.listOfPosts();
 
   @override

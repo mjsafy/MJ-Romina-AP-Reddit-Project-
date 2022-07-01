@@ -1,8 +1,12 @@
+import 'dart:io';
+
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:reddit/User.dart';
 
 class NewChannel extends StatelessWidget {
-  NewChannel({Key key}) : super(key: key);
+  User me;
+  NewChannel({this.me , Key key}) : super(key: key);
   TextEditingController nameC;
 
   @override
@@ -74,6 +78,18 @@ class NewChannel extends StatelessWidget {
                   onPressed: () {
                     if (nameC.text.isNotEmpty) {
                       String name = nameC.text;
+                      () async {
+                        await Socket.connect("10.0.2.2", 555).then(
+                              (ss) {
+                            ss.write("addChannel-"+name+"-"+me.username);
+                            ss.flush();
+                            ss.listen((response) {
+                              print(String.fromCharCodes(response));
+
+                            });
+                          },
+                        );
+                      };
                       Navigator.pop(context, name);
                       nameC.clear();
                     }
